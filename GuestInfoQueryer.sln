@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuestInfoQueryer", "GuestInfoQueryer\GuestInfoQueryer.csproj", "{477D2660-3D5A-42E1-B1A5-E8AD646A18AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{477D2660-3D5A-42E1-B1A5-E8AD646A18AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{477D2660-3D5A-42E1-B1A5-E8AD646A18AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{477D2660-3D5A-42E1-B1A5-E8AD646A18AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{477D2660-3D5A-42E1-B1A5-E8AD646A18AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D67C4DFD-F0AD-4CC0-B8D8-7D14F691FBF3}
+	EndGlobalSection
+EndGlobal
