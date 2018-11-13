@@ -66,6 +66,7 @@
             // 
             this.Btn_Minisize.FlatAppearance.BorderSize = 0;
             this.Btn_Minisize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Minisize.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Btn_Minisize.ForeColor = System.Drawing.Color.Snow;
             this.Btn_Minisize.Location = new System.Drawing.Point(3, 10);
             this.Btn_Minisize.Name = "Btn_Minisize";
@@ -79,6 +80,7 @@
             // 
             this.Btn_MaxSize.FlatAppearance.BorderSize = 0;
             this.Btn_MaxSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_MaxSize.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Btn_MaxSize.ForeColor = System.Drawing.Color.Snow;
             this.Btn_MaxSize.Location = new System.Drawing.Point(40, 10);
             this.Btn_MaxSize.Name = "Btn_MaxSize";
@@ -92,6 +94,7 @@
             // 
             this.Btn_Close.FlatAppearance.BorderSize = 0;
             this.Btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Close.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Btn_Close.ForeColor = System.Drawing.Color.Snow;
             this.Btn_Close.Location = new System.Drawing.Point(76, 10);
             this.Btn_Close.Name = "Btn_Close";
