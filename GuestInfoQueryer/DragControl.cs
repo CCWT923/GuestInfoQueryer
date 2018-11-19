@@ -12,6 +12,7 @@ namespace DragControl
     {
         private Control handleControl;
 
+        [Description("选择一个控件，以允许拖动此控件来拖动窗体")]
         public Control SelectControl
         {
             get

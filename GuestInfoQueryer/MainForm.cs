@@ -37,5 +37,31 @@ namespace GuestInfoQueryer
         {
             this.WindowState = FormWindowState.Minimized;
         }
+        private SybaseQueryer sybaseQueryer;
+        private String hostName;
+        private string userName;
+        private string password;
+
+        private void Btn_Settings_Click(object sender, EventArgs e)
+        {
+            Panel_SideDecoration.Top = Btn_Settings.Top;
+        }
+
+        private void Btn_About_Click(object sender, EventArgs e)
+        {
+            Panel_SideDecoration.Top = Btn_About.Top;
+        }
+
+        private void Btn_Home_Click(object sender, EventArgs e)
+        {
+            Panel_SideDecoration.Top = Btn_Home.Top;
+            
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            Panel_SideDecoration.Top = Btn_Home.Top;
+            Panel_SideDecoration.Left = 0;
+        }
     }
 }
