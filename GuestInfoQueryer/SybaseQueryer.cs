@@ -27,15 +27,33 @@ namespace GuestInfoQueryer
             this.UserName = UserName;
             _Password = Password;
             _Port = Port;
-            CreateQueryString();
+        }
+        /// <summary>
+        /// 测试连接
+        /// </summary>
+        /// <returns>返回是否连接上</returns>
+        public bool TestConnection()
+        {
+            using (var conn = new AseConnection(GetConnectionString()))
+            {
+                try
+                {
+                    conn.Open();
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         /// <summary>
         /// 初始化连接字符串
         /// </summary>
-        private void CreateQueryString()
+        private string GetConnectionString()
         {
-            _QueryString = "Data Source = " + _HostAddress + ";Database = " + _Database + ";Charset = " 
+            return "Data Source = " + _HostAddress + ";Database = " + _Database + ";Charset = " 
                 + _Charset + ";Port = " + _Port + ";UID = " + UserName + ";PWD = " + _Password + ";";
         }
 

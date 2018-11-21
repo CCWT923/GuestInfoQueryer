@@ -16,27 +16,6 @@ namespace GuestInfoQueryer
             InitializeComponent();
         }
 
-        private void Btn_MaxSize_Click(object sender, EventArgs e)
-        {
-            if(this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
-
-        private void Btn_Close_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Btn_Minisize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
         private SybaseQueryer sybaseQueryer;
         private String hostName;
         private string userName;
@@ -78,6 +57,30 @@ namespace GuestInfoQueryer
             Panel_Settings.Dock = DockStyle.Fill;
             Panel_About.Visible = false;
             Panel_Settings.Visible = false;
+        }
+        
+        private void Btn_TestConnection_Click(object sender, EventArgs e)
+        {
+            SybaseQueryer queryer = new SybaseQueryer(TextBox_Server.Text, TextBox_Username.Text, TextBox_Password.Text);
+            if(queryer.TestConnection())
+            {
+                Lbl_TestResult.Text = "连接成功";
+                Lbl_TestResult.ForeColor = Color.Green;
+            }
+            else
+            {
+                Lbl_TestResult.Text = "连接失败！";
+                Lbl_TestResult.ForeColor = Color.Red;
+            }
+
+        }
+
+        private void Btn_Query_Click(object sender, EventArgs e)
+        {
+            if(Panel_Home.Visible == false)
+            {
+                Btn_Home.PerformClick();
+            }
         }
     }
 }
