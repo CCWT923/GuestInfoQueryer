@@ -41,7 +41,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.Btn_Query = new System.Windows.Forms.Button();
-            this.Panel_ControlBox = new System.Windows.Forms.Panel();
             this.Panel_Main = new System.Windows.Forms.Panel();
             this.Panel_About = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,11 +63,9 @@
             this.TextBox_Database = new System.Windows.Forms.TextBox();
             this.Panel_Home = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TextBox_QueryString = new System.Windows.Forms.TextBox();
+            this.Lbl_Charset = new System.Windows.Forms.Label();
+            this.TextBox_Charset = new System.Windows.Forms.TextBox();
             this.dragControl1 = new DragControl.DragControl();
             this.dragControl2 = new DragControl.DragControl();
             this.Panel_CommandPanel.SuspendLayout();
@@ -159,7 +156,7 @@
             this.Panel_TopDecoration.Location = new System.Drawing.Point(176, 0);
             this.Panel_TopDecoration.Margin = new System.Windows.Forms.Padding(0);
             this.Panel_TopDecoration.Name = "Panel_TopDecoration";
-            this.Panel_TopDecoration.Size = new System.Drawing.Size(982, 15);
+            this.Panel_TopDecoration.Size = new System.Drawing.Size(982, 40);
             this.Panel_TopDecoration.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -249,25 +246,16 @@
             this.Btn_Query.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_Query.FlatAppearance.BorderSize = 0;
             this.Btn_Query.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Query.Font = new System.Drawing.Font("微软雅黑", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Btn_Query.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Btn_Query.ForeColor = System.Drawing.Color.White;
             this.Btn_Query.Location = new System.Drawing.Point(0, 0);
             this.Btn_Query.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_Query.Name = "Btn_Query";
             this.Btn_Query.Size = new System.Drawing.Size(196, 60);
             this.Btn_Query.TabIndex = 0;
-            this.Btn_Query.Text = "查询";
+            this.Btn_Query.Text = "查 询";
             this.Btn_Query.UseVisualStyleBackColor = false;
             this.Btn_Query.Click += new System.EventHandler(this.Btn_Query_Click);
-            // 
-            // Panel_ControlBox
-            // 
-            this.Panel_ControlBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Panel_ControlBox.Location = new System.Drawing.Point(176, 15);
-            this.Panel_ControlBox.Margin = new System.Windows.Forms.Padding(0);
-            this.Panel_ControlBox.Name = "Panel_ControlBox";
-            this.Panel_ControlBox.Size = new System.Drawing.Size(982, 35);
-            this.Panel_ControlBox.TabIndex = 3;
             // 
             // Panel_Main
             // 
@@ -275,24 +263,25 @@
             this.Panel_Main.Controls.Add(this.Panel_Settings);
             this.Panel_Main.Controls.Add(this.Panel_Home);
             this.Panel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_Main.Location = new System.Drawing.Point(176, 50);
+            this.Panel_Main.Location = new System.Drawing.Point(176, 40);
             this.Panel_Main.Margin = new System.Windows.Forms.Padding(0);
             this.Panel_Main.Name = "Panel_Main";
-            this.Panel_Main.Size = new System.Drawing.Size(982, 576);
+            this.Panel_Main.Size = new System.Drawing.Size(982, 586);
             this.Panel_Main.TabIndex = 3;
             // 
             // Panel_About
             // 
             this.Panel_About.BackColor = System.Drawing.Color.White;
+            this.Panel_About.Controls.Add(this.TextBox_QueryString);
             this.Panel_About.Controls.Add(this.label1);
             this.Panel_About.Controls.Add(this.Lbl_BuildDate);
             this.Panel_About.Controls.Add(this.Lbl_Author);
             this.Panel_About.Controls.Add(this.pictureBox1);
             this.Panel_About.Controls.Add(this.Lbl_AboutApp);
-            this.Panel_About.Location = new System.Drawing.Point(889, 22);
+            this.Panel_About.Location = new System.Drawing.Point(716, 383);
             this.Panel_About.Margin = new System.Windows.Forms.Padding(2);
             this.Panel_About.Name = "Panel_About";
-            this.Panel_About.Size = new System.Drawing.Size(59, 390);
+            this.Panel_About.Size = new System.Drawing.Size(225, 168);
             this.Panel_About.TabIndex = 2;
             // 
             // label1
@@ -309,7 +298,7 @@
             // 
             this.Lbl_BuildDate.AutoSize = true;
             this.Lbl_BuildDate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Lbl_BuildDate.Location = new System.Drawing.Point(420, 194);
+            this.Lbl_BuildDate.Location = new System.Drawing.Point(420, 167);
             this.Lbl_BuildDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Lbl_BuildDate.Name = "Lbl_BuildDate";
             this.Lbl_BuildDate.Size = new System.Drawing.Size(130, 21);
@@ -320,7 +309,7 @@
             // 
             this.Lbl_Author.AutoSize = true;
             this.Lbl_Author.Font = new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Lbl_Author.Location = new System.Drawing.Point(452, 157);
+            this.Lbl_Author.Location = new System.Drawing.Point(452, 130);
             this.Lbl_Author.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Lbl_Author.Name = "Lbl_Author";
             this.Lbl_Author.Size = new System.Drawing.Size(46, 24);
@@ -336,12 +325,13 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Lbl_AboutApp
             // 
             this.Lbl_AboutApp.AutoSize = true;
             this.Lbl_AboutApp.Font = new System.Drawing.Font("微软雅黑", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Lbl_AboutApp.Location = new System.Drawing.Point(408, 91);
+            this.Lbl_AboutApp.Location = new System.Drawing.Point(405, 20);
             this.Lbl_AboutApp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Lbl_AboutApp.Name = "Lbl_AboutApp";
             this.Lbl_AboutApp.Size = new System.Drawing.Size(150, 35);
@@ -353,28 +343,32 @@
             this.Panel_Settings.Controls.Add(this.Lbl_TestResult);
             this.Panel_Settings.Controls.Add(this.Btn_TestConnection);
             this.Panel_Settings.Controls.Add(this.TextBox_Username);
+            this.Panel_Settings.Controls.Add(this.TextBox_Charset);
             this.Panel_Settings.Controls.Add(this.TextBox_Port);
             this.Panel_Settings.Controls.Add(this.Lbl_Server);
             this.Panel_Settings.Controls.Add(this.TextBox_Password);
             this.Panel_Settings.Controls.Add(this.Lbl_Password);
+            this.Panel_Settings.Controls.Add(this.Lbl_Charset);
             this.Panel_Settings.Controls.Add(this.Lbl_Database);
             this.Panel_Settings.Controls.Add(this.Lbl_Port);
             this.Panel_Settings.Controls.Add(this.Lbl_Username);
             this.Panel_Settings.Controls.Add(this.TextBox_Server);
             this.Panel_Settings.Controls.Add(this.TextBox_Database);
-            this.Panel_Settings.Location = new System.Drawing.Point(127, 22);
+            this.Panel_Settings.Location = new System.Drawing.Point(511, 95);
             this.Panel_Settings.Margin = new System.Windows.Forms.Padding(2);
             this.Panel_Settings.Name = "Panel_Settings";
-            this.Panel_Settings.Size = new System.Drawing.Size(265, 181);
+            this.Panel_Settings.Size = new System.Drawing.Size(90, 52);
             this.Panel_Settings.TabIndex = 1;
             // 
             // Lbl_TestResult
             // 
             this.Lbl_TestResult.AutoSize = true;
-            this.Lbl_TestResult.Location = new System.Drawing.Point(326, 212);
+            this.Lbl_TestResult.Font = new System.Drawing.Font("微软雅黑", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Lbl_TestResult.Location = new System.Drawing.Point(291, 215);
             this.Lbl_TestResult.Name = "Lbl_TestResult";
-            this.Lbl_TestResult.Size = new System.Drawing.Size(0, 12);
+            this.Lbl_TestResult.Size = new System.Drawing.Size(21, 20);
             this.Lbl_TestResult.TabIndex = 6;
+            this.Lbl_TestResult.Text = "   ";
             // 
             // Btn_TestConnection
             // 
@@ -433,7 +427,6 @@
             this.TextBox_Password.PasswordChar = '*';
             this.TextBox_Password.Size = new System.Drawing.Size(141, 27);
             this.TextBox_Password.TabIndex = 4;
-            this.TextBox_Password.Text = "null";
             // 
             // Lbl_Password
             // 
@@ -514,12 +507,6 @@
             // 
             this.listView1.Alignment = System.Windows.Forms.ListViewAlignment.Default;
             this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.FullRowSelect = true;
             this.listView1.Location = new System.Drawing.Point(0, 0);
@@ -530,29 +517,41 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
+            // TextBox_QueryString
             // 
-            this.columnHeader1.Width = 205;
+            this.TextBox_QueryString.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBox_QueryString.Location = new System.Drawing.Point(657, 130);
+            this.TextBox_QueryString.Multiline = true;
+            this.TextBox_QueryString.Name = "TextBox_QueryString";
+            this.TextBox_QueryString.Size = new System.Drawing.Size(269, 391);
+            this.TextBox_QueryString.TabIndex = 5;
+            this.TextBox_QueryString.Text = "select * from master";
             // 
-            // columnHeader2
+            // Lbl_Charset
             // 
-            this.columnHeader2.Width = 210;
+            this.Lbl_Charset.AutoSize = true;
+            this.Lbl_Charset.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Lbl_Charset.Location = new System.Drawing.Point(401, 156);
+            this.Lbl_Charset.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Lbl_Charset.Name = "Lbl_Charset";
+            this.Lbl_Charset.Size = new System.Drawing.Size(69, 20);
+            this.Lbl_Charset.TabIndex = 3;
+            this.Lbl_Charset.Text = "字符集：";
             // 
-            // columnHeader3
+            // TextBox_Charset
             // 
-            this.columnHeader3.Width = 195;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Width = 457;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Width = 501;
+            this.TextBox_Charset.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBox_Charset.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TextBox_Charset.Location = new System.Drawing.Point(503, 154);
+            this.TextBox_Charset.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBox_Charset.Name = "TextBox_Charset";
+            this.TextBox_Charset.Size = new System.Drawing.Size(141, 27);
+            this.TextBox_Charset.TabIndex = 4;
+            this.TextBox_Charset.Text = "cp850";
             // 
             // dragControl1
             // 
-            this.dragControl1.SelectControl = this.Panel_Main;
+            this.dragControl1.SelectControl = this.Panel_TopDecoration;
             // 
             // dragControl2
             // 
@@ -565,7 +564,6 @@
             this.BackColor = System.Drawing.Color.Snow;
             this.ClientSize = new System.Drawing.Size(1158, 686);
             this.Controls.Add(this.Panel_Main);
-            this.Controls.Add(this.Panel_ControlBox);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.Panel_TopDecoration);
             this.Controls.Add(this.Panel_CommandPanel);
@@ -604,17 +602,11 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button Btn_Query;
         private System.Windows.Forms.Panel Panel_Main;
-        private System.Windows.Forms.Panel Panel_ControlBox;
         private System.Windows.Forms.Panel Panel_About;
         private System.Windows.Forms.Label Lbl_AboutApp;
         private System.Windows.Forms.Panel Panel_Settings;
         private System.Windows.Forms.Panel Panel_Home;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.TextBox TextBox_Password;
         private System.Windows.Forms.TextBox TextBox_Username;
         private System.Windows.Forms.TextBox TextBox_Database;
@@ -631,6 +623,9 @@
         private System.Windows.Forms.Button Btn_TestConnection;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TextBox_QueryString;
+        private System.Windows.Forms.TextBox TextBox_Charset;
+        private System.Windows.Forms.Label Lbl_Charset;
     }
 }
 

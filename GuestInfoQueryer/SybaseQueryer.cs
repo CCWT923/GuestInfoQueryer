@@ -14,7 +14,7 @@ namespace GuestInfoQueryer
         private int _Port = 0;
         private string _Database = "";
         private string _HostAddress = "";
-        private string _QueryString = "";
+        private string _ConnectionString = "";
         private string _Charset = "cp850";
 
         private AseConnection _connection;
@@ -27,12 +27,15 @@ namespace GuestInfoQueryer
             this.UserName = UserName;
             _Password = Password;
             _Port = Port;
+            _Database = Database;
+            _Charset = Charset;
+            _ConnectionString = GetConnectionString();
         }
         /// <summary>
         /// 测试连接
         /// </summary>
         /// <returns>返回是否连接上</returns>
-        public bool TestConnection()
+        public bool TestConnection(out string msg)
         {
             using (var conn = new AseConnection(GetConnectionString()))
             {
@@ -40,11 +43,13 @@ namespace GuestInfoQueryer
                 {
                     conn.Open();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    msg = ex.Message;
                     return false;
                 }
             }
+            msg = "";
             return true;
         }
 
@@ -61,7 +66,7 @@ namespace GuestInfoQueryer
         public string UserName { get => _UserName; set => _UserName = value; }
         public string Password { get => _Password; set => _Password = value; }
         public string Database { get => _Database; set => _Database = value; }
-        public string QueryString { get => _QueryString;}
+        public string ConnectionString { get => _ConnectionString;}
         public int Port { get => _Port; set => _Port = value; }
         public string HostAddress { get => _HostAddress; set => _HostAddress = value; }
         public string Charset { get => _Charset; set => _Charset = value; }
@@ -74,7 +79,7 @@ namespace GuestInfoQueryer
         {
             try
             {
-                _connection = new AseConnection(_QueryString);
+                _connection = new AseConnection(_ConnectionString);
                 _connection.Open();
             }
             catch (Exception ex)
