@@ -7,7 +7,7 @@ using System.Data;
 
 namespace GuestInfoQueryer
 {
-    class SybaseQueryer
+    class SybaseQueryer : IDisposable
     {
         private string _UserName = "";
         private string _Password = "";
@@ -107,6 +107,20 @@ namespace GuestInfoQueryer
             {
                 throw ex;
             }
+        }
+
+        public void Dispose()
+        {
+            if(_connection != null)
+            {
+                if(_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                    _connection.Dispose();
+                }
+            }
+            _command.Dispose();
+            _adapter.Dispose();
         }
     }
 }

@@ -168,6 +168,12 @@
         Xx4EFxtd3JEJJlz9MygepfmpUEUtoYpaQhW1hCpqCVXUDox+ASUmfJKZ+QdAAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="TextBox_QueryString.Text" xml:space="preserve">
+    <value>SELECT g.name '姓名', g.sex '性别', g.birth '出生日期', g.street '地址', g.ident '证件号', g.phone '手机', g.mobile '电话', g.fv_date '首次入住', g.fv_room '首次房号', g.fv_rate '首次房费', g.lv_date '末次入住', g.lv_room '末次房号', 
+g.lv_rate '末次房费', g.i_times '入住次数', g.x_times '取消次数', g.i_days '房晚', h.setrate '房价', h.ref '备注' FROM dbo.guest g, dbo.hmaster h WHERE g.no = h.haccnt UNION ALL SELECT g1.name '姓名', g1.sex '性别', 
+g1.birth '出生日期', g1.street '地址', g1.ident '证件号', g1.phone '手机', g1.mobile '电话', g1.fv_date '首次入住', g1.fv_room '首次房号', g1.fv_rate '首次房费', g1.lv_date '末次入住', 
+g1.lv_room '末次房号', g1.lv_rate '末次房费', g1.i_times '入住次数', g1.x_times '取消次数', g1.i_days '房晚', h1.setrate '房价', h1.ref '备注' FROM dbo.guest g1, dbo.master h1 WHERE g1.no = h1.haccnt</value>
+  </data>
   <metadata name="dragControl1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
