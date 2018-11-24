@@ -31,15 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.Panel_CommandPanel = new System.Windows.Forms.Panel();
             this.Panel_SideDecoration = new System.Windows.Forms.Panel();
-            this.Btn_About = new System.Windows.Forms.Button();
-            this.Btn_Settings = new System.Windows.Forms.Button();
-            this.Btn_Home = new System.Windows.Forms.Button();
             this.Panel_TopDecoration = new System.Windows.Forms.Panel();
+            this.Panel_ControlBox = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Btn_Export = new System.Windows.Forms.Button();
             this.Btn_Query = new System.Windows.Forms.Button();
             this.Panel_Main = new System.Windows.Forms.Panel();
             this.Panel_About = new System.Windows.Forms.Panel();
@@ -47,7 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Lbl_BuildDate = new System.Windows.Forms.Label();
             this.Lbl_Author = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Lbl_AboutApp = new System.Windows.Forms.Label();
             this.Panel_Settings = new System.Windows.Forms.Panel();
             this.Lbl_TestResult = new System.Windows.Forms.Label();
@@ -66,17 +63,24 @@
             this.TextBox_Database = new System.Windows.Forms.TextBox();
             this.Panel_Home = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Btn_Close = new System.Windows.Forms.Button();
+            this.Btn_Minisize = new System.Windows.Forms.Button();
+            this.Btn_Maxsize = new System.Windows.Forms.Button();
+            this.Btn_About = new System.Windows.Forms.Button();
+            this.Btn_Settings = new System.Windows.Forms.Button();
+            this.Btn_Home = new System.Windows.Forms.Button();
             this.dragControl1 = new DragControl.DragControl();
             this.dragControl2 = new DragControl.DragControl();
-            this.Panel_ControlBox = new System.Windows.Forms.Panel();
             this.Panel_CommandPanel.SuspendLayout();
             this.Panel_TopDecoration.SuspendLayout();
+            this.Panel_ControlBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.Panel_Main.SuspendLayout();
             this.Panel_About.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Panel_Settings.SuspendLayout();
             this.Panel_Home.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_CommandPanel
@@ -102,54 +106,6 @@
             this.Panel_SideDecoration.Size = new System.Drawing.Size(10, 42);
             this.Panel_SideDecoration.TabIndex = 0;
             // 
-            // Btn_About
-            // 
-            this.Btn_About.FlatAppearance.BorderSize = 0;
-            this.Btn_About.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_About.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Btn_About.ForeColor = System.Drawing.Color.White;
-            this.Btn_About.Image = ((System.Drawing.Image)(resources.GetObject("Btn_About.Image")));
-            this.Btn_About.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_About.Location = new System.Drawing.Point(10, 163);
-            this.Btn_About.Name = "Btn_About";
-            this.Btn_About.Size = new System.Drawing.Size(162, 42);
-            this.Btn_About.TabIndex = 0;
-            this.Btn_About.Text = "关于(&A)";
-            this.Btn_About.UseVisualStyleBackColor = true;
-            this.Btn_About.Click += new System.EventHandler(this.Btn_About_Click);
-            // 
-            // Btn_Settings
-            // 
-            this.Btn_Settings.FlatAppearance.BorderSize = 0;
-            this.Btn_Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Settings.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Btn_Settings.ForeColor = System.Drawing.Color.White;
-            this.Btn_Settings.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Settings.Image")));
-            this.Btn_Settings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_Settings.Location = new System.Drawing.Point(10, 117);
-            this.Btn_Settings.Name = "Btn_Settings";
-            this.Btn_Settings.Size = new System.Drawing.Size(162, 42);
-            this.Btn_Settings.TabIndex = 0;
-            this.Btn_Settings.Text = "设置(&S)";
-            this.Btn_Settings.UseVisualStyleBackColor = true;
-            this.Btn_Settings.Click += new System.EventHandler(this.Btn_Settings_Click);
-            // 
-            // Btn_Home
-            // 
-            this.Btn_Home.FlatAppearance.BorderSize = 0;
-            this.Btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Home.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Btn_Home.ForeColor = System.Drawing.Color.White;
-            this.Btn_Home.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Home.Image")));
-            this.Btn_Home.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_Home.Location = new System.Drawing.Point(10, 72);
-            this.Btn_Home.Name = "Btn_Home";
-            this.Btn_Home.Size = new System.Drawing.Size(162, 42);
-            this.Btn_Home.TabIndex = 0;
-            this.Btn_Home.Text = "主页(&H)";
-            this.Btn_Home.UseVisualStyleBackColor = true;
-            this.Btn_Home.Click += new System.EventHandler(this.Btn_Home_Click);
-            // 
             // Panel_TopDecoration
             // 
             this.Panel_TopDecoration.BackColor = System.Drawing.Color.DodgerBlue;
@@ -162,6 +118,18 @@
             this.Panel_TopDecoration.Size = new System.Drawing.Size(982, 40);
             this.Panel_TopDecoration.TabIndex = 1;
             // 
+            // Panel_ControlBox
+            // 
+            this.Panel_ControlBox.Controls.Add(this.Btn_Close);
+            this.Panel_ControlBox.Controls.Add(this.Btn_Minisize);
+            this.Panel_ControlBox.Controls.Add(this.Btn_Maxsize);
+            this.Panel_ControlBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Panel_ControlBox.Location = new System.Drawing.Point(859, 0);
+            this.Panel_ControlBox.Margin = new System.Windows.Forms.Padding(0);
+            this.Panel_ControlBox.Name = "Panel_ControlBox";
+            this.Panel_ControlBox.Size = new System.Drawing.Size(123, 40);
+            this.Panel_ControlBox.TabIndex = 0;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
@@ -173,7 +141,7 @@
             this.tableLayoutPanel1.Controls.Add(this.button5, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.button4, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.button3, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.Btn_Export, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.Btn_Query, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(176, 626);
@@ -228,20 +196,22 @@
             this.button3.TabIndex = 2;
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // Btn_Export
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(130)))), ((int)(((byte)(255)))));
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(196, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(196, 60);
-            this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = false;
+            this.Btn_Export.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(130)))), ((int)(((byte)(255)))));
+            this.Btn_Export.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Btn_Export.FlatAppearance.BorderSize = 0;
+            this.Btn_Export.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Export.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Btn_Export.ForeColor = System.Drawing.Color.White;
+            this.Btn_Export.Location = new System.Drawing.Point(196, 0);
+            this.Btn_Export.Margin = new System.Windows.Forms.Padding(0);
+            this.Btn_Export.Name = "Btn_Export";
+            this.Btn_Export.Size = new System.Drawing.Size(196, 60);
+            this.Btn_Export.TabIndex = 1;
+            this.Btn_Export.Text = "导出";
+            this.Btn_Export.UseVisualStyleBackColor = false;
+            this.Btn_Export.Click += new System.EventHandler(this.Btn_Export_Click);
             // 
             // Btn_Query
             // 
@@ -249,14 +219,14 @@
             this.Btn_Query.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_Query.FlatAppearance.BorderSize = 0;
             this.Btn_Query.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Query.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Btn_Query.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Btn_Query.ForeColor = System.Drawing.Color.White;
             this.Btn_Query.Location = new System.Drawing.Point(0, 0);
             this.Btn_Query.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_Query.Name = "Btn_Query";
             this.Btn_Query.Size = new System.Drawing.Size(196, 60);
             this.Btn_Query.TabIndex = 0;
-            this.Btn_Query.Text = "查 询";
+            this.Btn_Query.Text = "查询";
             this.Btn_Query.UseVisualStyleBackColor = false;
             this.Btn_Query.Click += new System.EventHandler(this.Btn_Query_Click);
             // 
@@ -329,17 +299,6 @@
             this.Lbl_Author.Size = new System.Drawing.Size(46, 24);
             this.Lbl_Author.TabIndex = 1;
             this.Lbl_Author.Text = "W.T.";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GuestInfoQueryer.Properties.Resources.zsm;
-            this.pictureBox1.Location = new System.Drawing.Point(373, 291);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(227, 230);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Lbl_AboutApp
             // 
@@ -553,6 +512,103 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GuestInfoQueryer.Properties.Resources.zsm;
+            this.pictureBox1.Location = new System.Drawing.Point(373, 291);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(227, 230);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // Btn_Close
+            // 
+            this.Btn_Close.FlatAppearance.BorderSize = 0;
+            this.Btn_Close.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkRed;
+            this.Btn_Close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.Btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Close.Image = global::GuestInfoQueryer.Properties.Resources.btn_close1;
+            this.Btn_Close.Location = new System.Drawing.Point(83, 2);
+            this.Btn_Close.Name = "Btn_Close";
+            this.Btn_Close.Size = new System.Drawing.Size(34, 34);
+            this.Btn_Close.TabIndex = 3;
+            this.Btn_Close.UseVisualStyleBackColor = true;
+            this.Btn_Close.Click += new System.EventHandler(this.Btn_Close_Click);
+            // 
+            // Btn_Minisize
+            // 
+            this.Btn_Minisize.FlatAppearance.BorderSize = 0;
+            this.Btn_Minisize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Minisize.Image = global::GuestInfoQueryer.Properties.Resources.Btn_Minisize;
+            this.Btn_Minisize.Location = new System.Drawing.Point(3, 2);
+            this.Btn_Minisize.Name = "Btn_Minisize";
+            this.Btn_Minisize.Size = new System.Drawing.Size(36, 34);
+            this.Btn_Minisize.TabIndex = 2;
+            this.Btn_Minisize.UseVisualStyleBackColor = true;
+            this.Btn_Minisize.Click += new System.EventHandler(this.Btn_Minisize_Click);
+            // 
+            // Btn_Maxsize
+            // 
+            this.Btn_Maxsize.FlatAppearance.BorderSize = 0;
+            this.Btn_Maxsize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Maxsize.Image = global::GuestInfoQueryer.Properties.Resources.Btn_Maxsize_1;
+            this.Btn_Maxsize.Location = new System.Drawing.Point(44, 2);
+            this.Btn_Maxsize.Name = "Btn_Maxsize";
+            this.Btn_Maxsize.Size = new System.Drawing.Size(34, 34);
+            this.Btn_Maxsize.TabIndex = 1;
+            this.Btn_Maxsize.UseVisualStyleBackColor = true;
+            this.Btn_Maxsize.Click += new System.EventHandler(this.Btn_Maxsize_Click);
+            // 
+            // Btn_About
+            // 
+            this.Btn_About.FlatAppearance.BorderSize = 0;
+            this.Btn_About.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_About.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Btn_About.ForeColor = System.Drawing.Color.White;
+            this.Btn_About.Image = ((System.Drawing.Image)(resources.GetObject("Btn_About.Image")));
+            this.Btn_About.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_About.Location = new System.Drawing.Point(10, 163);
+            this.Btn_About.Name = "Btn_About";
+            this.Btn_About.Size = new System.Drawing.Size(162, 42);
+            this.Btn_About.TabIndex = 0;
+            this.Btn_About.Text = "关于(&A)";
+            this.Btn_About.UseVisualStyleBackColor = true;
+            this.Btn_About.Click += new System.EventHandler(this.Btn_About_Click);
+            // 
+            // Btn_Settings
+            // 
+            this.Btn_Settings.FlatAppearance.BorderSize = 0;
+            this.Btn_Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Settings.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Btn_Settings.ForeColor = System.Drawing.Color.White;
+            this.Btn_Settings.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Settings.Image")));
+            this.Btn_Settings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Settings.Location = new System.Drawing.Point(10, 117);
+            this.Btn_Settings.Name = "Btn_Settings";
+            this.Btn_Settings.Size = new System.Drawing.Size(162, 42);
+            this.Btn_Settings.TabIndex = 0;
+            this.Btn_Settings.Text = "设置(&S)";
+            this.Btn_Settings.UseVisualStyleBackColor = true;
+            this.Btn_Settings.Click += new System.EventHandler(this.Btn_Settings_Click);
+            // 
+            // Btn_Home
+            // 
+            this.Btn_Home.FlatAppearance.BorderSize = 0;
+            this.Btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Home.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Btn_Home.ForeColor = System.Drawing.Color.White;
+            this.Btn_Home.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Home.Image")));
+            this.Btn_Home.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Home.Location = new System.Drawing.Point(10, 72);
+            this.Btn_Home.Name = "Btn_Home";
+            this.Btn_Home.Size = new System.Drawing.Size(162, 42);
+            this.Btn_Home.TabIndex = 0;
+            this.Btn_Home.Text = "主页(&H)";
+            this.Btn_Home.UseVisualStyleBackColor = true;
+            this.Btn_Home.Click += new System.EventHandler(this.Btn_Home_Click);
+            // 
             // dragControl1
             // 
             this.dragControl1.SelectControl = this.Panel_TopDecoration;
@@ -560,15 +616,6 @@
             // dragControl2
             // 
             this.dragControl2.SelectControl = this.Panel_CommandPanel;
-            // 
-            // Panel_ControlBox
-            // 
-            this.Panel_ControlBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Panel_ControlBox.Location = new System.Drawing.Point(852, 0);
-            this.Panel_ControlBox.Margin = new System.Windows.Forms.Padding(0);
-            this.Panel_ControlBox.Name = "Panel_ControlBox";
-            this.Panel_ControlBox.Size = new System.Drawing.Size(130, 40);
-            this.Panel_ControlBox.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -585,16 +632,18 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Guest Info Queryer - By: W.T.";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.Panel_CommandPanel.ResumeLayout(false);
             this.Panel_TopDecoration.ResumeLayout(false);
+            this.Panel_ControlBox.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.Panel_Main.ResumeLayout(false);
             this.Panel_About.ResumeLayout(false);
             this.Panel_About.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Panel_Settings.ResumeLayout(false);
             this.Panel_Settings.PerformLayout();
             this.Panel_Home.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -613,7 +662,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Btn_Export;
         private System.Windows.Forms.Button Btn_Query;
         private System.Windows.Forms.Panel Panel_Main;
         private System.Windows.Forms.Panel Panel_About;
@@ -641,6 +690,9 @@
         private System.Windows.Forms.TextBox TextBox_Charset;
         private System.Windows.Forms.Label Lbl_Charset;
         private System.Windows.Forms.Panel Panel_ControlBox;
+        private System.Windows.Forms.Button Btn_Maxsize;
+        private System.Windows.Forms.Button Btn_Close;
+        private System.Windows.Forms.Button Btn_Minisize;
     }
 }
 

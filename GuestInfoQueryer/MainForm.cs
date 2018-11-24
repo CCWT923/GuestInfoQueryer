@@ -157,5 +157,50 @@ namespace GuestInfoQueryer
                 TextBox_QueryString.Visible = true;
             }
         }
+
+        private void Btn_Minisize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void Btn_Maxsize_Click(object sender, EventArgs e)
+        {
+            if(this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                Btn_Maxsize.Image = Properties.Resources.Btn_Maxsized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                Btn_Maxsize.Image = Properties.Resources.Btn_Maxsize_1;
+            }
+            
+        }
+
+        private void Btn_Close_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("退出系统？","关闭",MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            if(this.WindowState == FormWindowState.Maximized)
+            {
+                Btn_Maxsize.Image = Properties.Resources.Btn_Maxsized;
+            }
+            else if(this.WindowState == FormWindowState.Normal)
+            {
+                Btn_Maxsize.Image = Properties.Resources.Btn_Maxsize_1;
+            }
+        }
+
+        private void Btn_Export_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
