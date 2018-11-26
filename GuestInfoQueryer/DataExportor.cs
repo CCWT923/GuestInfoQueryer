@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using OfficeOpenXml;
 using System.Data;
+using System.IO;
 
 namespace GuestInfoQueryer
 {
@@ -37,11 +38,21 @@ namespace GuestInfoQueryer
                 _FilePath = value;
             }
         }
+        /// <summary>
+        /// 要导出的文件类型
+        /// </summary>
+        public enum FileType
+        {
+            Excel,
+            Text,
+            HTML,
+            CSV
+        };
 
         /// <summary>
         /// 导出数据
         /// </summary>
-        public void Export(int StartRow, int RowsCount)
+        public void Export(int StartRow, int RowsCount, FileType ExportFileType)
         {
             if(_DataTableToExport == null)
             {
@@ -55,6 +66,21 @@ namespace GuestInfoQueryer
             if(StartRow > RowsCount)
             {
                 throw new Exception("指定的数据范围不合法！");
+            }
+
+            if(ExportFileType == FileType.Excel)
+            {
+                FileInfo fileInfo = new FileInfo(_FilePath);
+                ExcelPackage excel = new ExcelPackage(fileInfo);
+
+            }
+            else if(ExportFileType == FileType.Text)
+            {
+
+            }
+            else if(ExportFileType == FileType.HTML)
+            {
+
             }
 
         }

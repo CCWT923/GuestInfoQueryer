@@ -105,7 +105,7 @@ namespace GuestInfoQueryer
             {
                 sybaseQueryer = new SybaseQueryer(_hostName, _userName, _password, _port, _database, _charset);
                 sybaseQueryer.Connect();
-                _dataTable = sybaseQueryer.Query(EncodingString(TextBox_QueryString.Text,sybaseQueryer.Charset,Encoding.Default.HeaderName));
+                _dataTable = sybaseQueryer.Query(Util.EncodingString(TextBox_QueryString.Text,sybaseQueryer.Charset,Encoding.Default.HeaderName));
                 FillListView();
                 sybaseQueryer.Dispose();
             }
@@ -125,7 +125,7 @@ namespace GuestInfoQueryer
             listView1.Columns.Add("#");
             for(int i = 0; i < _dataTable.Columns.Count; i++)
             {
-                listView1.Columns.Add(EncodingString(_dataTable.Columns[i].ColumnName, Encoding.Default.HeaderName, sybaseQueryer.Charset));
+                listView1.Columns.Add(Util.EncodingString(_dataTable.Columns[i].ColumnName, Encoding.Default.HeaderName, sybaseQueryer.Charset));
             }
             ListViewItem mainItem;
             //string tmp = "";
@@ -134,18 +134,12 @@ namespace GuestInfoQueryer
                 mainItem = listView1.Items.Add((++number).ToString());
                 for(int j = 0; j < _dataTable.Columns.Count; j++)
                 {
-                    mainItem.SubItems.Add(EncodingString(_dataTable.Rows[i][j].ToString(), Encoding.Default.HeaderName, sybaseQueryer.Charset));
+                    mainItem.SubItems.Add(Util.EncodingString(_dataTable.Rows[i][j].ToString(), Encoding.Default.HeaderName, sybaseQueryer.Charset));
                 }
             }
             listView1.EndUpdate();
         }
 
-        private string EncodingString(string s, string codePageTo, string codePageFrom)
-        {
-            string result = "";
-            result = Encoding.GetEncoding(codePageTo).GetString(Encoding.GetEncoding(codePageFrom).GetBytes(s));
-            return result;
-        }
 
         private int _DebugCount = 0;
         private void pictureBox1_Click(object sender, EventArgs e)
