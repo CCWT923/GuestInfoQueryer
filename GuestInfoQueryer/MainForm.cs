@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Net.NetworkInformation;
 
 namespace GuestInfoQueryer
 {
@@ -74,22 +75,51 @@ namespace GuestInfoQueryer
             _database = TextBox_Database.Text;
             _charset = TextBox_Charset.Text;
         }
-        
-        private void Btn_TestConnection_Click(object sender, EventArgs e)
+        /// <summary>
+        /// ping测试一个IP地址
+        /// </summary>
+        /// <param name="ip"></param>
+        /// <returns></returns>
+        private bool PingTest(string ip)
         {
-            string msg = "";
-            SybaseQueryer queryer = new SybaseQueryer(TextBox_Server.Text, TextBox_Username.Text, TextBox_Password.Text);
-            if(queryer.TestConnection(out msg))
+            PingReply pingReplay;
+            Ping ping = new Ping();
+            pingReplay = ping.Send(ip, 2000);
+            if(pingReplay.Status == IPStatus.Success)
             {
-                Lbl_TestResult.Text = "连接成功。";
-                Lbl_TestResult.ForeColor = Color.Green;
+                return true;
             }
             else
             {
-                Lbl_TestResult.Text = "连接失败！" + msg;
+                return false;
+            }
+        }
+
+        private void Btn_TestConnection_Click(object sender, EventArgs e)
+        {
+            Btn_TestConnection.Enabled = false;
+            if(PingTest(TextBox_Server.Text))
+            {
+                string msg = "";
+                SybaseQueryer queryer = new SybaseQueryer(TextBox_Server.Text, TextBox_Username.Text, TextBox_Password.Text);
+                if (queryer.TestConnection(out msg))
+                {
+                    Lbl_TestResult.Text = "连接成功。";
+                    Lbl_TestResult.ForeColor = Color.Green;
+                }
+                else
+                {
+                    Lbl_TestResult.Text = "连接失败！" + msg;
+                    Lbl_TestResult.ForeColor = Color.Red;
+                }
+            }
+            else
+            {
+                Lbl_TestResult.Text = "连接失败！";
                 Lbl_TestResult.ForeColor = Color.Red;
             }
 
+            Btn_TestConnection.Enabled = true;
         }
 
         private void Btn_Query_Click(object sender, EventArgs e)
