@@ -24,6 +24,7 @@ namespace GuestInfoQueryer
         {
 
         }
+
         /// <summary>
         /// 获取或设置文件的路径
         /// </summary>
@@ -36,6 +37,16 @@ namespace GuestInfoQueryer
             set
             {
                 _FilePath = value;
+            }
+        }
+        /// <summary>
+        /// 设置用于导出的数据
+        /// </summary>
+        public DataTable Data
+        {
+            set
+            {
+                _DataTableToExport = value;
             }
         }
         /// <summary>
@@ -67,12 +78,31 @@ namespace GuestInfoQueryer
             {
                 throw new Exception("指定的数据范围不合法！");
             }
+            if(RowsCount > _DataTableToExport.Rows.Count)
+            {
+                RowsCount = _DataTableToExport.Rows.Count;
+                //throw new Exception("数据超出索引范围！");
+            }
 
             if(ExportFileType == FileType.Excel)
             {
                 FileInfo fileInfo = new FileInfo(_FilePath);
                 ExcelPackage excel = new ExcelPackage(fileInfo);
-
+                ExcelWorksheet worksheet = excel.Workbook.Worksheets.Add("DataExport");
+                for(int t = 0; t < _DataTableToExport.Columns.Count;t++)
+                {
+                    worksheet.Cells[1, t + 1].Value = _DataTableToExport.Columns[t].ColumnName;
+                }
+                int row = 2;
+                for(int i = StartRow; i < RowsCount; i++)
+                {
+                    for(int j = 0; j < _DataTableToExport.Columns.Count; j++)
+                    {
+                        worksheet.Cells[row, j + 1].Value = _DataTableToExport.Rows[i][j].ToString();
+                    }
+                    row++;
+                }
+                excel.Save();
             }
             else if(ExportFileType == FileType.Text)
             {

@@ -224,7 +224,9 @@ namespace GuestInfoQueryer
 
         private void Btn_Export_Click(object sender, EventArgs e)
         {
-
+            DataExportor dataExportor = new DataExportor("D:\\test.xlsx");
+            dataExportor.Data = _dataTable;
+            dataExportor.Export(1, 10000, DataExportor.FileType.Excel);
         }
     }
 }
