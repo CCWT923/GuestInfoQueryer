@@ -224,9 +224,34 @@ namespace GuestInfoQueryer
 
         private void Btn_Export_Click(object sender, EventArgs e)
         {
-            DataExportor dataExportor = new DataExportor("D:\\test.xlsx");
-            dataExportor.Data = _dataTable;
-            dataExportor.Export(1, 10000, DataExportor.FileType.Excel);
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Excel文件|*.xlsx|文本文档|*.txt|HTML文档|*.html|CSV文档|*.csv";
+            dialog.Title = "导出为文件……";
+            DataExportor.FileType fileType = new DataExportor.FileType();
+
+            if(dialog.ShowDialog() == DialogResult.OK)
+            {
+                if (dialog.FilterIndex == 1)
+                {
+                    fileType = DataExportor.FileType.Excel;
+                }
+                else if (dialog.FilterIndex == 2)
+                {
+                    fileType = DataExportor.FileType.Text;
+                }
+                else if (dialog.FilterIndex == 3)
+                {
+                    fileType = DataExportor.FileType.HTML;
+                }
+                else if (dialog.FilterIndex == 4)
+                {
+                    fileType = DataExportor.FileType.CSV;
+                }
+                DataExportor dataExportor = new DataExportor(dialog.FileName);
+                dataExportor.Data = _dataTable;
+                dataExportor.Export(fileType);
+            }
+            
         }
     }
 }

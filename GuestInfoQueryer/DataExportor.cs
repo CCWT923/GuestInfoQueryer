@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using OfficeOpenXml;
+﻿using OfficeOpenXml;
 using System.Data;
 using System.IO;
+using System.Text;
 
 namespace GuestInfoQueryer
 {
@@ -23,6 +20,13 @@ namespace GuestInfoQueryer
         public DataExportor()
         {
 
+        }
+
+        private  string EncodingString(string s, string codePageTo, string codePageFrom)
+        {
+            string result;
+            result = Encoding.GetEncoding(codePageTo).GetString(Encoding.GetEncoding(codePageFrom).GetBytes(s));
+            return result;
         }
 
         /// <summary>
@@ -63,26 +67,8 @@ namespace GuestInfoQueryer
         /// <summary>
         /// 导出数据
         /// </summary>
-        public void Export(int StartRow, int RowsCount, FileType ExportFileType)
+        public void Export(FileType ExportFileType)
         {
-            if(_DataTableToExport == null)
-            {
-                throw new Exception("数据表未初始化！");
-            }
-
-            if(_FilePath == null)
-            {
-                throw new Exception("未指定文件路径！");
-            }
-            if(StartRow > RowsCount)
-            {
-                throw new Exception("指定的数据范围不合法！");
-            }
-            if(RowsCount > _DataTableToExport.Rows.Count)
-            {
-                RowsCount = _DataTableToExport.Rows.Count;
-                //throw new Exception("数据超出索引范围！");
-            }
 
             if(ExportFileType == FileType.Excel)
             {
@@ -91,14 +77,14 @@ namespace GuestInfoQueryer
                 ExcelWorksheet worksheet = excel.Workbook.Worksheets.Add("DataExport");
                 for(int t = 0; t < _DataTableToExport.Columns.Count;t++)
                 {
-                    worksheet.Cells[1, t + 1].Value = _DataTableToExport.Columns[t].ColumnName;
+                    worksheet.Cells[1, t + 1].Value = EncodingString(_DataTableToExport.Columns[t].ColumnName,Encoding.Default.HeaderName,"cp850");
                 }
                 int row = 2;
-                for(int i = StartRow; i < RowsCount; i++)
+                for(int i = 0; i < _DataTableToExport.Rows.Count; i++)
                 {
                     for(int j = 0; j < _DataTableToExport.Columns.Count; j++)
                     {
-                        worksheet.Cells[row, j + 1].Value = _DataTableToExport.Rows[i][j].ToString();
+                        worksheet.Cells[row, j + 1].Value = EncodingString(_DataTableToExport.Rows[i][j].ToString(), Encoding.Default.HeaderName, "cp850");
                     }
                     row++;
                 }
@@ -107,12 +93,34 @@ namespace GuestInfoQueryer
             else if(ExportFileType == FileType.Text)
             {
 
+                FileStream stream = new FileStream(_FilePath, FileMode.CreateNew);
+                StreamWriter writer = new StreamWriter(stream, Encoding.UTF8);
+                for(int i = 0; i < _DataTableToExport.Columns.Count;i++)
+                {
+                    writer.Write(EncodingString(_DataTableToExport.Columns[i].ColumnName,Encoding.Default.HeaderName, "cp850") + '\t');
+                }
+                writer.WriteLine();
+                for(int i = 0; i < _DataTableToExport.Rows.Count;i++)
+                {
+                    for(int j = 0; j < _DataTableToExport.Columns.Count;j++)
+                    {
+                        writer.Write(EncodingString(_DataTableToExport.Rows[i][j].ToString(),Encoding.Default.HeaderName, "cp850") + '\t');
+                    }
+                    writer.WriteLine();
+                }
+                stream.Flush();
+                writer.Close();
+
+                stream.Close();
             }
             else if(ExportFileType == FileType.HTML)
             {
 
             }
+            else if(ExportFileType == FileType.CSV)
+            {
 
+            }
         }
 
     }
