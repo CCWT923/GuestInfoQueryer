@@ -115,11 +115,50 @@ namespace GuestInfoQueryer
             }
             else if(ExportFileType == FileType.HTML)
             {
+                FileStream stream = new FileStream(_FilePath, FileMode.CreateNew);
+                StreamWriter writer = new StreamWriter(stream, Encoding.UTF8);
+                writer.WriteLine("<HTML><head><title>数据导出</title></head><body><table><tr>");
+                for (int i = 0; i < _DataTableToExport.Columns.Count; i++)
+                {
+                    writer.Write("<th>" + EncodingString(_DataTableToExport.Columns[i].ColumnName, Encoding.Default.HeaderName, "cp850") + "</th>");
+                }
+                writer.Write("</tr>\n");
+                for (int i = 0; i < _DataTableToExport.Rows.Count; i++)
+                {
+                    writer.Write("<tr>");
+                    for (int j = 0; j < _DataTableToExport.Columns.Count; j++)
+                    {
+                        writer.Write("<td>" + EncodingString(_DataTableToExport.Rows[i][j].ToString(), Encoding.Default.HeaderName, "cp850") + "</td>");
+                    }
+                    writer.Write("</tr>");
+                }
+                writer.Write("</table></body></html>");
+                stream.Flush();
+                writer.Close();
 
+                stream.Close();
             }
             else if(ExportFileType == FileType.CSV)
             {
+                FileStream stream = new FileStream(_FilePath, FileMode.CreateNew);
+                StreamWriter writer = new StreamWriter(stream, Encoding.UTF8);
+                for (int i = 0; i < _DataTableToExport.Columns.Count; i++)
+                {
+                    writer.Write(EncodingString(_DataTableToExport.Columns[i].ColumnName, Encoding.Default.HeaderName, "cp850") + ',');
+                }
+                writer.WriteLine();
+                for (int i = 0; i < _DataTableToExport.Rows.Count; i++)
+                {
+                    for (int j = 0; j < _DataTableToExport.Columns.Count; j++)
+                    {
+                        writer.Write(EncodingString(_DataTableToExport.Rows[i][j].ToString(), Encoding.Default.HeaderName, "cp850") + ',');
+                    }
+                    writer.WriteLine();
+                }
+                stream.Flush();
+                writer.Close();
 
+                stream.Close();
             }
         }
 
